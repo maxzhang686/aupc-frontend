@@ -85,13 +85,17 @@ const Signin = () => {
         <h2>Loading...</h2>
       </div>
     );
+
   //after login go to other page
   const redirectUser = () => {
     if (redirectToReferrer) {
       if (user && user.role === 1) {
-        return <Redirect to="/admin/dashborad" />;
+        return <Redirect to="/admin/dashboard" />;
       }
-      return <Redirect to="/user/dashborad" />;
+      return <Redirect to="/user/dashboard" />;
+    }
+    if (isAuthenticated()) {
+      return <Redirect to="/" />;
     }
   };
 
