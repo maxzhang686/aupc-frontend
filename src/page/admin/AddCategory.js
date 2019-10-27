@@ -17,8 +17,8 @@ const AddCatagory = () => {
     setName(e.target.value);
   };
 
-  const clickSubmit = e => {
-    e.preventDefault();
+  const clickSubmit = event => {
+    event.preventDefault();
     setError();
     setSuccess(false);
 

@@ -27,7 +27,7 @@ const AdminDashboard = () => {
             <Link
               className="nav-link"
               style={{ padding: 0 }}
-              to="/creat/product"
+              to="/create/product"
             >
               Creat Product
             </Link>
