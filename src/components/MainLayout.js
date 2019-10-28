@@ -1,6 +1,6 @@
 import React from "react";
 
-const TitleLayout = ({
+const MainLayout = ({
   title = "Tile",
   description = "description",
   className,
@@ -15,4 +15,4 @@ const TitleLayout = ({
   </div>
 );
 
-export default TitleLayout;
+export default MainLayout;

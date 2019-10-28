@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import TitleLayout from "../../components/TitleLayout";
+import MainLayout from "../../components/MainLayout";
 import { signup } from "../../auth";
 
 const Signup = () => {
@@ -99,7 +99,7 @@ const Signup = () => {
   );
 
   return (
-    <TitleLayout
+    <MainLayout
       title="SignUp page"
       description="Australia PC Online Store"
       className="container col-md-8 offset-md-2"
@@ -107,7 +107,7 @@ const Signup = () => {
       {showError()}
       {showSuccess()}
       {signUpForm()}
-    </TitleLayout>
+    </MainLayout>
   );
 };
 

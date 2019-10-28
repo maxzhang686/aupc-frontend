@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import TitleLayout from "../../components/TitleLayout";
+import MainLayout from "../../components/MainLayout";
 import { isAuthenticated } from "../../auth";
 import { Link } from "react-router-dom";
 import { createCategory } from "./apiAdmin";
@@ -75,7 +75,7 @@ const AddCatagory = () => {
   );
 
   return (
-    <TitleLayout
+    <MainLayout
       title="Add a New Category"
       description={`Hi ${user.name}, Let's create a new category!`}
       className="container"
@@ -88,7 +88,7 @@ const AddCatagory = () => {
           {goBack()}
         </div>
       </div>
-    </TitleLayout>
+    </MainLayout>
   );
 };
 export default AddCatagory;

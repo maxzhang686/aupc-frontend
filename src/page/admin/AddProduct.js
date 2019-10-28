@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
-import TitleLayout from "../../components/TitleLayout";
+import MainLayout from "../../components/MainLayout";
 import { isAuthenticated } from "../../auth";
 import { Link } from "react-router-dom";
-import { createProduct } from "./apiAdmin";
+import { createProduct, getCategories } from "./apiAdmin";
 
 const AddProduct = () => {
   const [values, setValues] = useState({
     name: "",
     description: "",
+    fulldescription: "",
     price: "",
     categories: [],
     category: "",
@@ -26,6 +27,7 @@ const AddProduct = () => {
   const {
     name,
     description,
+    fulldescription,
     price,
     categories,
     category,
@@ -38,9 +40,20 @@ const AddProduct = () => {
     formData
   } = values;
 
-  //????
+  //local categories and set form data
+  const init = () => {
+    getCategories().then(data => {
+      if (data.error) {
+        setValues({ ...values, error: data.error });
+      } else {
+        setValues({ ...values, categories: data, formData: new FormData() });
+      }
+    });
+  };
+
+  //????lifecycle
   useEffect(() => {
-    setValues({ ...values, formData: new FormData() });
+    init();
   }, []);
 
   const handleChange = name => event => {
@@ -60,6 +73,7 @@ const AddProduct = () => {
           ...values,
           name: "",
           description: "",
+          fulldescription: "",
           photo: "",
           price: "",
           quantity: "",
@@ -69,6 +83,8 @@ const AddProduct = () => {
       }
     });
   };
+
+  // const testClick = () => console.log(categories);
 
   const newPostForm = () => {
     return (
@@ -86,59 +102,71 @@ const AddProduct = () => {
         </div>
 
         <div className="form-group">
-          <label className="">Name</label>
+          <label className="text-muted">Name</label>
           <input
             onChange={handleChange("name")}
             type="text"
             className="form-control"
             value={name}
-            required
           />
         </div>
 
         <div className="form-group">
-          <label className="">Description</label>
-          <textarea
+          <label className="text-muted">Title</label>
+          <input
+            type="text"
             onChange={handleChange("description")}
             className="form-control"
             value={description}
-            required
           />
         </div>
 
         <div className="form-group">
-          <label className="">Price</label>
+          <label className="text-muted">Description</label>
+          <textarea
+            onChange={handleChange("fulldescription")}
+            className="form-control"
+            value={fulldescription}
+          />
+        </div>
+
+        <div className="form-group">
+          <label className="text-muted">Price</label>
           <input
             onChange={handleChange("price")}
             type="number"
             className="form-control"
             value={price}
-            required
           />
         </div>
 
         <div className="form-group">
-          <label className="">Category</label>
+          <label className="text-muted">Category</label>
           <select onChange={handleChange("category")} className="form-control">
-            <option value="5da6a91201abb6138933afd7">CPU</option>
-            <option value="5da6a91201abb6138933afd7">CPU1</option>
+            <option>Please select</option>
+            {categories &&
+              categories.map((category, index) => (
+                <option key={index} value={category._id}>
+                  {category.name}
+                </option>
+              ))}
           </select>
         </div>
 
         <div className="form-group">
-          <label className="">Quantity</label>
+          <label className="text-muted">Quantity</label>
           <input
             onChange={handleChange("quantity")}
             type="number"
             className="form-control"
             value={quantity}
-            required
           />
         </div>
 
         <div className="form-group">
-          <label className="">Shipping</label>
+          <label className="text-muted">Shipping</label>
           <select onChange={handleChange("shipping")} className="form-control">
+            <option>Please select</option>
             <option value="0">NO</option>
             <option value="1">YES</option>
           </select>
@@ -148,16 +176,46 @@ const AddProduct = () => {
     );
   };
 
+  const showError = () => (
+    <div
+      className="alert alert-danger"
+      style={{ display: error ? "" : "none" }}
+    >
+      {error}
+    </div>
+  );
+
+  const showSuccess = () => (
+    <div
+      className="alert alert-infor"
+      style={{ display: createdProduct ? "" : "none" }}
+    >
+      <h3>{`${createdProduct}`} is Created!!!</h3>
+    </div>
+  );
+
+  const showLoading = () =>
+    loading && (
+      <div className="alert alert-success">
+        <h2>Loading...</h2>
+      </div>
+    );
+
   return (
-    <TitleLayout
+    <MainLayout
       title="Add a New Category"
       description={`Hi ${user.name}, Let's create a new product!`}
       className="container"
     >
       <div className="row">
-        <div className="col-md-8 offset-md-2">{newPostForm()}</div>
+        <div className="col-md-8 offset-md-2">
+          {showLoading()}
+          {showSuccess()}
+          {showError()}
+          {newPostForm()}
+        </div>
       </div>
-    </TitleLayout>
+    </MainLayout>
   );
 };
 export default AddProduct;

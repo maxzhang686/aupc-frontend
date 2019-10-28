@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
-import TitleLayout from "../../components/TitleLayout";
+import MainLayout from "../../components/MainLayout";
 import { signin, authenticate, isAuthenticated } from "../../auth";
 
 const Signin = () => {
@@ -100,7 +100,7 @@ const Signin = () => {
   };
 
   return (
-    <TitleLayout
+    <MainLayout
       title="SignIn page"
       description="Australia PC Online Store"
       className="container col-md-8 offset-md-2"
@@ -109,7 +109,7 @@ const Signin = () => {
       {showError()}
       {signUpForm()}
       {redirectUser()}
-    </TitleLayout>
+    </MainLayout>
   );
 };
 

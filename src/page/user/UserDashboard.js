@@ -1,5 +1,5 @@
 import React from "react";
-import TitleLayout from "../../components/TitleLayout";
+import MainLayout from "../../components/MainLayout";
 import { isAuthenticated } from "../../auth";
 import { Link } from "react-router-dom";
 
@@ -60,7 +60,7 @@ const Dashboard = () => {
   };
 
   return (
-    <TitleLayout
+    <MainLayout
       title="UserDashboard"
       description={`Hi ${name}! Welcome to AUPC Online Store`}
       className="container"
@@ -72,7 +72,7 @@ const Dashboard = () => {
           {orderHistory()}
         </div>
       </div>
-    </TitleLayout>
+    </MainLayout>
   );
 };
 export default Dashboard;

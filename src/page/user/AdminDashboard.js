@@ -1,5 +1,5 @@
 import React from "react";
-import TitleLayout from "../../components/TitleLayout";
+import MainLayout from "../../components/MainLayout";
 import { isAuthenticated } from "../../auth";
 import { Link } from "react-router-dom";
 
@@ -53,7 +53,7 @@ const AdminDashboard = () => {
   };
 
   return (
-    <TitleLayout
+    <MainLayout
       title="Admin Dashboard"
       description={`Hi ${name}! Welcome to AUPC Online Store`}
       className="container"
@@ -62,7 +62,7 @@ const AdminDashboard = () => {
         <div className="col-3">{adminLink()}</div>
         <div className="col-9">{adminInfo()}</div>
       </div>
-    </TitleLayout>
+    </MainLayout>
   );
 };
 export default AdminDashboard;
