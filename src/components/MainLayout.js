@@ -1,8 +1,10 @@
 import React from "react";
+import "../main.css";
+import Menu from "./Menu";
 
 const MainLayout = ({
   title = "Tile",
-  description = "description",
+  description = "Description",
   className,
   children
 }) => (
