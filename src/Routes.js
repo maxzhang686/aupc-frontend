@@ -10,6 +10,7 @@ import Dashboard from "./page/user/UserDashboard";
 import AdminDashboard from "./page/user/AdminDashboard";
 import AddCatagory from "./page/admin/AddCategory";
 import AddProduct from "./page/admin/AddProduct";
+import Products from "./page/Products";
 
 const Routes = () => {
   return (
@@ -17,6 +18,7 @@ const Routes = () => {
       <Menu />
       <Switch>
         <Route path="/" exact component={Home} />
+        <Route path="/products" exact component={Products} />
         <Route path="/signin" exact component={Signin} />
         <Route path="/signup" exact component={Signup} />
         <PrivateRoute path="/user/dashboard" exact component={Dashboard} />
