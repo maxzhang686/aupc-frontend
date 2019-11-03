@@ -5,7 +5,6 @@ import { getCategories, getProductsByFilter } from "./apiCore";
 import Checkbox from "./Checkbox";
 import { prices } from "../components/fixedPrices";
 import CheckboxPrice from "./CheckboxPrice";
-import { compileFunction } from "vm";
 
 const Products = () => {
   //set filter and fetch data later
@@ -74,7 +73,7 @@ const Products = () => {
       if (data.error) {
         setError(data.error);
       } else {
-        setFilteredResults(data);
+        setFilteredResults(data.data);
         // console.log(limit);
         // console.log(skip);
       }
@@ -108,7 +107,14 @@ const Products = () => {
           </div>
         </div>
 
-        <div className="col-8">{JSON.stringify(filteredResults)}</div>
+        <div className="col-8">
+          <div className="mb-4">Products</div>
+          <div className="row">
+            {filteredResults.map((product, i) => (
+              <Card key={i} product={product}></Card>
+            ))}
+          </div>
+        </div>
       </div>
     </MainLayout>
   );
