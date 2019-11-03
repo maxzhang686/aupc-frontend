@@ -17,7 +17,7 @@ const Checkbox = ({ categories, handleFilters }) => {
       newCheckedCategoryId.splice(currentCategoryId, 1);
     }
 
-    console.log(newCheckedCategoryId);
+    //console.log(newCheckedCategoryId);
     setCheked(newCheckedCategoryId);
     handleFilters(newCheckedCategoryId);
   };
