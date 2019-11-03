@@ -61,6 +61,7 @@ const Products = () => {
     return array;
   };
 
+  //load product data by search(check box)
   const loadFilterResulte = data => {
     console.log(data);
   };
