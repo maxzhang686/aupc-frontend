@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import MainLayout from "../components/MainLayout";
 import Card from "../components/Card";
-import { getCategories } from "./apiCore";
+import { getCategories, getProductsByFilter } from "./apiCore";
 import Checkbox from "./Checkbox";
 import { prices } from "../components/fixedPrices";
 import CheckboxPrice from "./CheckboxPrice";
+import { compileFunction } from "vm";
 
 const Products = () => {
   //set filter and fetch data later
@@ -14,6 +15,10 @@ const Products = () => {
   //state
   const [categories, setCategories] = useState([]);
   const [error, setError] = useState(false);
+  const [limit, setLimit] = useState(9);
+  const [skip, setSkip] = useState(0);
+  const [size, setSize] = useState(0);
+  const [filteredResults, setFilteredResults] = useState([]);
 
   //fetch all categories and set data to state
   const init = () => {
@@ -28,6 +33,7 @@ const Products = () => {
 
   useEffect(() => {
     init();
+    loadFilterResulte(skip, limit, productPageFilters.filters);
   }, []);
 
   //when click change the page filter
@@ -62,8 +68,17 @@ const Products = () => {
   };
 
   //load product data by search(check box)
-  const loadFilterResulte = data => {
-    console.log(data);
+  const loadFilterResulte = newFilter => {
+    //console.log(newFilter);
+    getProductsByFilter(skip, limit, newFilter).then(data => {
+      if (data.error) {
+        setError(data.error);
+      } else {
+        setFilteredResults(data);
+        // console.log(limit);
+        // console.log(skip);
+      }
+    });
   };
 
   return (
@@ -93,7 +108,7 @@ const Products = () => {
           </div>
         </div>
 
-        <div className="col-8">{JSON.stringify(productPageFilters)}</div>
+        <div className="col-8">{JSON.stringify(filteredResults)}</div>
       </div>
     </MainLayout>
   );
