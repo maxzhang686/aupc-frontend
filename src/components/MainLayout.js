@@ -1,6 +1,7 @@
 import React from "react";
-import "../main.css";
 import Menu from "./Menu";
+import "../bootstrap.css";
+import "../main.css";
 
 const MainLayout = ({
   title = "Tile",
@@ -9,6 +10,7 @@ const MainLayout = ({
   children
 }) => (
   <div>
+    <Menu />
     <div className="jumbotron">
       <h2>{title}</h2>
       <p className="lead">{description}</p>
