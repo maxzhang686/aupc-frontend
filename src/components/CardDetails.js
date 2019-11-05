@@ -34,7 +34,7 @@ const Card = ({ product, ShowViewProductButton = true }) => {
       <div className="name card-header ">{product.name}</div>
       <div className="card-body">
         <ShowImage item={product} url="product"></ShowImage>
-        <p className="lead mt-2">{product.description.substring(0, 45)}</p>
+        <p className="lead mt-2">{product.description.substring(0, 100)}</p>
         <p className="black-10">${product.price}</p>
         <p className="black-9">
           Category: {product.category && product.category.name}

@@ -41,3 +41,23 @@ export const getProductsByFilter = (skip, limit, filters = {}) => {
       console.log(err);
     });
 };
+
+export const readProduct = productId => {
+  return fetch(`${API}/product/${productId}`, {
+    method: "GET"
+  })
+    .then(response => {
+      return response.json();
+    })
+    .catch(err => console.log(err));
+};
+
+export const relatedProductRead = productId => {
+  return fetch(`${API}/products/related/${productId}`, {
+    method: "GET"
+  })
+    .then(response => {
+      return response.json();
+    })
+    .catch(err => console.log(err));
+};
