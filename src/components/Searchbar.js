@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getProducts } from "./apiCore";
+import { getProducts } from "../page/apiCore";
 
 const Searchbar = () => {
   return (
