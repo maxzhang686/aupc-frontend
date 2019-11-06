@@ -3,13 +3,15 @@ import { Link } from "react-router-dom";
 import MainLayout from "../components/MainLayout";
 import { getCart } from "../components/cartHelper";
 import Card from "../components/Card";
+import Checkout from "./CheckOut";
 
 const Cart = () => {
   const [items, setItems] = useState([]);
+  const [run, setRun] = useState(false);
 
   useEffect(() => {
     setItems(getCart());
-  }, []);
+  }, [run]);
 
   const showItemList = items => {
     return (
@@ -22,6 +24,9 @@ const Cart = () => {
             product={product}
             showAddToCartButton={false}
             showCartUpdate={true}
+            showRemoveProduct={true}
+            setRun={setRun}
+            run={run}
           ></Card>
         ))}
       </div>
@@ -45,7 +50,15 @@ const Cart = () => {
           {items.length > 0 ? showItemList(items) : noItemsMessage()}
         </div>
         <div className="col-6">
-          <h3>Check out</h3>
+          {/* <div className="col-6">
+            {items.length > 0 ? showItems(items) : noItemsMessage()}
+          </div> */}
+
+          <div className="col-6">
+            <h2 className="mb-4">Your cart summary</h2>
+            <hr />
+            <Checkout products={items} />
+          </div>
         </div>
       </div>
     </MainLayout>

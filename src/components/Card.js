@@ -1,15 +1,19 @@
 import React, { useState } from "react";
 import { Link, Redirect } from "react-router-dom";
 import ShowImage from "./ShowImage";
-import { addItem } from "./cartHelper";
+import { addItem, updateItem, removeItem } from "./cartHelper";
 
 const Card = ({
   product,
   showViewProductButton = true,
   showAddToCartButton = true,
-  showCartUpdate = false
+  showCartUpdate = false,
+  showRemoveProduct = false,
+  setRun = f => f, // default value of function
+  run = undefined // default value of undefined
 }) => {
   const [redirect, setRedirect] = useState(false);
+  const [count, setCount] = useState(product.count);
 
   const viewButton = showViewProductButton => {
     return (
@@ -56,8 +60,48 @@ const Card = ({
     );
   };
 
+  const handleChange = productId => event => {
+    setRun(!run); // run useEffect in parent Cart
+    setCount(event.target.value < 1 ? 1 : event.target.value);
+    if (event.target.value >= 1) {
+      updateItem(productId, event.target.value);
+    }
+  };
+
   const cartUpdateButton = showCartUpdate => {
-    return showCartUpdate && <div> in/de</div>;
+    return (
+      showCartUpdate && (
+        <div>
+          <div className="input-group mb-3 mt-2">
+            <div className="input-group-prepend">
+              <span className="input-group-text">Adjust Quantity</span>
+            </div>
+            <input
+              type="number"
+              className="form-control"
+              value={count}
+              onChange={handleChange(product._id)}
+            />
+          </div>
+        </div>
+      )
+    );
+  };
+
+  const removeProductButton = showRemoveProduct => {
+    return (
+      showRemoveProduct && (
+        <button
+          onClick={() => {
+            removeItem(product._id);
+            setRun(!run); // run useEffect in parent Cart
+          }}
+          className="btn btn-outline-danger mt-2 mb-2"
+        >
+          RemoveProduct
+        </button>
+      )
+    );
   };
 
   return (
@@ -76,11 +120,13 @@ const Card = ({
         {showStock(product.quantity)}
         <br />
 
+        {cartUpdateButton(showCartUpdate)}
+
         {viewButton(showViewProductButton)}
 
         {addToCartButton(showAddToCartButton)}
 
-        {cartUpdateButton(showCartUpdate)}
+        {removeProductButton(showRemoveProduct)}
       </div>
     </div>
   );
