@@ -10,8 +10,9 @@ import Dashboard from "./page/user/UserDashboard";
 import AdminDashboard from "./page/user/AdminDashboard";
 import AddCatagory from "./page/admin/AddCategory";
 import AddProduct from "./page/admin/AddProduct";
-import Products from "./page/Products";
+import Products from "./page/ProductsPage";
 import ProductDetail from "./page/ProductDetail";
+import Cart from "./page/CartPgae";
 
 const Routes = () => {
   return (
@@ -19,6 +20,7 @@ const Routes = () => {
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/products" exact component={Products} />
+        <Route path="/cart" exact component={Cart} />
         <Route path="/signin" exact component={Signin} />
         <Route path="/signup" exact component={Signup} />
         <Route path="/product/:productId" exact component={ProductDetail} />

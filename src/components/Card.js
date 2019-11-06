@@ -3,12 +3,17 @@ import { Link, Redirect } from "react-router-dom";
 import ShowImage from "./ShowImage";
 import { addItem } from "./cartHelper";
 
-const Card = ({ product, ShowViewProductButton = true }) => {
+const Card = ({
+  product,
+  showViewProductButton = true,
+  showAddToCartButton = true,
+  showCartUpdate = false
+}) => {
   const [redirect, setRedirect] = useState(false);
 
-  const viewButton = ShowViewProductButton => {
+  const viewButton = showViewProductButton => {
     return (
-      ShowViewProductButton && (
+      showViewProductButton && (
         <Link to={`/product/${product._id}`}>
           <button className="btn btn-outline-primary mt-2 mb-2 mr-2">
             View Product
@@ -30,11 +35,16 @@ const Card = ({ product, ShowViewProductButton = true }) => {
     }
   };
 
-  const addToCartButton = () => {
+  const addToCartButton = showAddToCartButton => {
     return (
-      <button onClick={addToCart} className="btn btn-outline-warning mt-2 mb-2">
-        Add to cart
-      </button>
+      showAddToCartButton && (
+        <button
+          onClick={addToCart}
+          className="btn btn-outline-warning mt-2 mb-2"
+        >
+          Add to cart
+        </button>
+      )
     );
   };
 
@@ -44,6 +54,10 @@ const Card = ({ product, ShowViewProductButton = true }) => {
     ) : (
       <span className="badge badge-primary badge-pill">Out of Stock</span>
     );
+  };
+
+  const cartUpdateButton = showCartUpdate => {
+    return showCartUpdate && <div> in/de</div>;
   };
 
   return (
@@ -62,8 +76,11 @@ const Card = ({ product, ShowViewProductButton = true }) => {
         {showStock(product.quantity)}
         <br />
 
-        {viewButton(ShowViewProductButton)}
-        {addToCartButton()}
+        {viewButton(showViewProductButton)}
+
+        {addToCartButton(showAddToCartButton)}
+
+        {cartUpdateButton(showCartUpdate)}
       </div>
     </div>
   );

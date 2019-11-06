@@ -42,11 +42,12 @@ const ProductDetail = props => {
       <div className="row">
         <div className="col-8">
           {product && product.description && (
-            <Card product={product} ShowViewProductButton={false}></Card>
+            <Card product={product} showViewProductButton={false}></Card>
           )}
         </div>
       </div>
       <hr></hr>
+
       <h2 className="mb-4">Related products</h2>
       <div className="row">
         {relatedProduct.map((product, i) => (
