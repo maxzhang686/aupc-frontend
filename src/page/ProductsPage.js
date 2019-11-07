@@ -115,7 +115,7 @@ const Products = () => {
   return (
     <MainLayout
       title="Products Page"
-      description="JR-Australia PC Online Store"
+      description="Australia PC Online Store"
       className="container-fluid"
     >
       <div className="row">

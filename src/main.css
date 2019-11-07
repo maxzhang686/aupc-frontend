@@ -76,6 +76,12 @@
   }
 } */
 
+.p2 {
+  color: #e90d31;
+  font-weight: bold;
+  text-shadow: 0 0 0.2em rgb(241, 206, 200),
+    -0 -0 0.2em #f87;
+}
 
 /**
   * jumbotron animation
