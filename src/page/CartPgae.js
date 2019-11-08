@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import MainLayout from "../components/MainLayout";
-import { getCart } from "../components/cartHelper";
+import { getCart } from "./cartHelper";
 import Card from "../components/Card";
-import Checkout from "./CheckOut";
+import Checkout from "./Checkout";
 
 const Cart = () => {
   const [items, setItems] = useState([]);
@@ -49,16 +49,11 @@ const Cart = () => {
         <div className="col-6">
           {items.length > 0 ? showItemList(items) : noItemsMessage()}
         </div>
-        <div className="col-6">
-          {/* <div className="col-6">
-            {items.length > 0 ? showItems(items) : noItemsMessage()}
-          </div> */}
 
-          <div className="col-6">
-            <h2 className="mb-4">Your cart summary</h2>
-            <hr />
-            <Checkout products={items} />
-          </div>
+        <div className="col-6">
+          <h2 className="mb-4">Your cart summary</h2>
+          <hr />
+          <Checkout products={items} setRun={setRun} run={run} />
         </div>
       </div>
     </MainLayout>

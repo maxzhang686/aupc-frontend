@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, Redirect } from "react-router-dom";
 import ShowImage from "./ShowImage";
-import { addItem, updateItem, removeItem } from "./cartHelper";
+import { addItem, updateItem, removeItem } from "../page/cartHelper";
 
 const Card = ({
   product,
@@ -9,8 +9,10 @@ const Card = ({
   showAddToCartButton = true,
   showCartUpdate = false,
   showRemoveProduct = false,
-  setRun = f => f, // default value of function
-  run = undefined // default value of undefined
+  // default value of function
+  setRun = f => f,
+  // default value of undefined
+  run = undefined
 }) => {
   const [redirect, setRedirect] = useState(false);
   const [count, setCount] = useState(product.count);

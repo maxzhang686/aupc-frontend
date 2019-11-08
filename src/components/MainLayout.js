@@ -8,13 +8,14 @@ const MainLayout = ({
   description = "Description",
   className,
   children,
-  titlecss
+  titlecss,
+  descriptioncss
 }) => (
   <div>
     <Menu />
     <div className="jumbotron">
-      <h2 className={`${titlecss}`}>{title}</h2>
-      <p className={`${titlecss} lead`}>{description}</p>
+      <h2 className={`${titlecss} p2`}>{title}</h2>
+      <p className={`${descriptioncss} p2 lead`}>{description}</p>
     </div>
     <div className={className}>{children}</div>
   </div>
