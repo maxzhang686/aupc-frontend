@@ -35,10 +35,11 @@ const Home = () => {
 
   return (
     <MainLayout
-      title="Welcome"
-      description="JR-Australia PC Online Store"
+      title="Welcome JR-Aupc"
+      description="Australia PC Online Store"
       className="container-fluid "
       titlecss="p2"
+      descriptioncss="p2"
     >
       <h2 className="mb-4">Best Sellers</h2>
       <div className="row">

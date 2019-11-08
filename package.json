@@ -5,6 +5,7 @@
   "dependencies": {
     "braintree-web-drop-in-react": "^1.1.0",
     "dotenv": "^8.2.0",
+    "moment": "^2.24.0",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-router-dom": "^5.1.2",

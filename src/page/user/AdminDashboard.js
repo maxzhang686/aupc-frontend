@@ -32,6 +32,15 @@ const AdminDashboard = () => {
               Creat Product
             </Link>
           </li>
+          <li className="list-group-item">
+            <Link
+              className="nav-link"
+              style={{ padding: 0 }}
+              to="/admin/orders"
+            >
+              All Order List
+            </Link>
+          </li>
         </ul>
       </div>
     );
