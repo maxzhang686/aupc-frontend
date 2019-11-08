@@ -15,7 +15,7 @@ const MainLayout = ({
     <Menu />
     <div className="jumbotron">
       <h2 className={`${titlecss} p2`}>{title}</h2>
-      <p className={`${descriptioncss} p2 lead`}>{description}</p>
+      <p className={`${descriptioncss} p3 lead`}>{description}</p>
     </div>
     <div className={className}>{children}</div>
   </div>
