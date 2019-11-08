@@ -58,7 +58,6 @@ const Checkout = ({ products, setRun = f => f, run = undefined }) => {
   const deliveryAddress = data.address;
   const buy = () => {
     setData({ loading: true });
-
     // send the nonce to your server
     // nonce = data.instance.requestPaymentMethod()
     let nonce;
@@ -81,8 +80,7 @@ const Checkout = ({ products, setRun = f => f, run = undefined }) => {
 
         processPayment(userId, token, paymentData)
           .then(response => {
-            // console.log(response);
-
+            console.log(response);
             // empty cart
             // create order
 
@@ -93,15 +91,29 @@ const Checkout = ({ products, setRun = f => f, run = undefined }) => {
               address: deliveryAddress
             };
 
-            createOrder(userId, token, createOrderData);
+            // createOrder(userId, token, createOrderData);
 
-            setData({ ...data, success: response.success });
+            // //setData({ ...data, success: response.success });
+            // emptyCart(() => {
+            //   setRun(!run);
+            //   console.log("payment success and empty cart");
+            //   setData({ loading: false, success: true });
 
-            emptyCart(() => {
-              setRun(!run);
-              console.log("payment success and empty cart");
-              setData({ loading: false, success: true });
-            });
+            createOrder(userId, token, createOrderData)
+              .then(response => {
+                emptyCart(() => {
+                  setRun(!run);
+                  console.log("payment success and empty cart");
+                  setData({
+                    loading: false,
+                    success: true
+                  });
+                });
+              })
+              .catch(error => {
+                console.log(error);
+                setData({ loading: false });
+              });
           })
           .catch(error => {
             console.log(error);

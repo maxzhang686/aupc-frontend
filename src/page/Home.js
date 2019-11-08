@@ -38,8 +38,8 @@ const Home = () => {
       title="Welcome JR-Aupc"
       description="Australia PC Online Store"
       className="container-fluid "
-      titlecss="p2"
-      descriptioncss="p2"
+      // titlecss="p2"
+      // descriptioncss="p2"
     >
       <h2 className="mb-4">Best Sellers</h2>
       <div className="row">

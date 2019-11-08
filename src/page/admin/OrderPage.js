@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import MainLayout from "../../components/MainLayout";
 import { isAuthenticated } from "../../auth";
 import { Link } from "react-router-dom";
-import { listOrder, getStatusValues } from "./apiAdmin";
+import { listOrder, getStatusValues, updateOrderStatus } from "./apiAdmin";
 import moment from "moment";
 
 const OrderPage = () => {
@@ -43,16 +43,24 @@ const OrderPage = () => {
       return <h3 className="text-danger">There is no order.</h3>;
     }
   };
-  const handleStatusChang = (event, orderid) => {
-    console.log("xxx");
+  const handleStatusChang = (event, orderId) => {
+    updateOrderStatus(user._id, token, orderId, event.target.value).then(
+      data => {
+        if (data.error) {
+          console.log("Status update failed!");
+        } else {
+          loadOrders();
+        }
+      }
+    );
   };
 
-  const showStatusValues = order => (
+  const showStatusValues = o => (
     <div className="form-group">
-      <h3 className="mark mb-4">Status: {order.status}</h3>
+      <h3 className="mark mb-4">Status: {o.status}</h3>
       <select
         className="form-control"
-        onChange={event => handleStatusChang(event, order._id)}
+        onChange={event => handleStatusChang(event, o._id)}
       >
         <option>Update Status</option>
         {statusValues.map((statusValue, valueIndex) => (
