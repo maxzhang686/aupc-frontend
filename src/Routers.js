@@ -4,6 +4,7 @@ import Signin from "./page/user/Signin";
 import Signup from "./page/user/Signup";
 import Home from "./page/Home";
 //import Menu from "./components/Menu";
+import NewMenu from "./components/NewMenu";
 import PrivateRoute from "./auth/PrivateRoute";
 import AdminRoute from "./auth/AdminRoute";
 import Dashboard from "./page/user/UserDashboard";
@@ -18,9 +19,13 @@ import OrderPage from "./page/admin/OrderPage";
 import ManageProducts from "./page/admin/ManageProductsPage";
 import UpdateProduct from "./page/admin/UpdateProduct";
 
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./main.css";
+
 const Routers = () => {
   return (
     <BrowserRouter>
+      <NewMenu />
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/products" exact component={Products} />

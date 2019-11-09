@@ -144,3 +144,34 @@
     background-position: 0% 50%;
   }
 } */
+
+
+
+/**
+  * header
+  */
+.headerrow {
+  background-color: #ffffff !important;
+  width: 100%;
+  position: fixed;
+  z-index: 1030;
+  height: 56px;
+}
+
+.newNavbar {
+  margin: 0 auto;
+  max-width: 1032px;
+  background-color: #ffffff !important;
+
+}
+
+.navlink {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  padding-right: .5rem;
+  padding-left: .5rem;
+}
+
+.navlink:hover {
+  text-decoration: none;
+}

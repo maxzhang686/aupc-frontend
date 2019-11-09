@@ -1,7 +1,9 @@
 import React from "react";
 import Menu from "./Menu";
-import "../bootstrap.css";
-import "../main.css";
+
+// import "../bootstrap.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
+// import "../main.css";
 
 const MainLayout = ({
   title = "Tile",
