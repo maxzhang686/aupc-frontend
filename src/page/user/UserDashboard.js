@@ -76,13 +76,14 @@ const Dashboard = () => {
         <h3 className="card-header">Purchase history</h3>
         <ul className="list-group">
           <li className="list-group-item">
-            {history.map((h, i) => {
+            {history.map((h, hi) => {
               return (
-                <div>
+                <div key={hi}>
                   <hr />
-                  {h.products.map((p, i) => {
+                  <h6>Order Id: {h._id}</h6>
+                  {h.products.map((p, pi) => {
                     return (
-                      <div>
+                      <div key={pi}>
                         <h6>Product name: {p.name}</h6>
                         <h6>Product price: ${p.price}</h6>
                         <h6>
