@@ -1,5 +1,5 @@
 import React from "react";
-import Menu from "./Menu";
+//import Menu from "./Menu";
 
 // import "../bootstrap.css";
 // import "bootstrap/dist/css/bootstrap.min.css";
@@ -13,8 +13,7 @@ const MainLayout = ({
   titlecss,
   descriptioncss
 }) => (
-  <div>
-    <Menu />
+  <div className="Padtop fixwidth">
     <div className="jumbotron">
       <h2 className={`${titlecss} p2`}>{title}</h2>
       <p className={`${descriptioncss} p3 lead`}>{description}</p>

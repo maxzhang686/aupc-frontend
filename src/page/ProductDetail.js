@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import MainLayout from "../components/MainLayout";
 import { readProduct, relatedProductRead } from "./apiCore";
+import CardProduct from "../components/CardProduct";
 import Card from "../components/Card";
 
 const ProductDetail = props => {
@@ -40,18 +41,20 @@ const ProductDetail = props => {
       className="container-fluid"
     >
       <div className="row">
-        <div className="col-8">
-          {product && product.description && (
-            <Card product={product} showViewProductButton={false}></Card>
-          )}
-        </div>
+        {product && product.description && (
+          <CardProduct
+            product={product}
+            showViewProductButton={false}
+          ></CardProduct>
+        )}
       </div>
+
       <hr></hr>
 
-      <h2 className="mb-4">Related products</h2>
-      <div className="row">
+      <h2 className="mb-4 text-center">Related products</h2>
+      <div className="row justify-content-md-center">
         {relatedProduct.map((product, i) => (
-          <div key={i} className="col-4 mb-3">
+          <div key={i} className="mb-3 mr-2 ml-2">
             <Card key={i} product={product}></Card>
           </div>
         ))}

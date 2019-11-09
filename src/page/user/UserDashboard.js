@@ -31,7 +31,7 @@ const Dashboard = () => {
 
   const userLink = () => {
     return (
-      <div className="card mb-5">
+      <div className="card mb-5 ">
         <h4 className="card-header">User Link</h4>
         <ul className="list-group">
           <li className="list-group-item">
@@ -111,8 +111,8 @@ const Dashboard = () => {
       className="container"
     >
       <div className="row">
-        <div className="col-3">{userLink()}</div>
-        <div className="col-9">
+        <div className="col-12 col-sm-4">{userLink()}</div>
+        <div className="col-12 col-sm-8">
           {userInfo()}
           {purchaseHistory(history)}
         </div>

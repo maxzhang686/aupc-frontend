@@ -119,31 +119,37 @@ const Products = () => {
       className="container-fluid"
     >
       <div className="row">
-        <div className="col-4">
-          <h4>Filter by Categories</h4>
-          <ul>
-            <Checkbox
-              categories={categories}
-              handleFilters={categoryfilters =>
-                handleFilters(categoryfilters, "category")
-              }
-            ></Checkbox>
-          </ul>
+        <div className="col-12 col-sm-3">
+          <div className="row">
+            <div className="col-6 col-sm-12">
+              <h4>Filter by Categories</h4>
+              <ul>
+                <Checkbox
+                  categories={categories}
+                  handleFilters={categoryfilters =>
+                    handleFilters(categoryfilters, "category")
+                  }
+                ></Checkbox>
+              </ul>
+            </div>
 
-          <h4>Filter by Prices</h4>
-          <div>
-            <CheckboxPrice
-              prices={prices}
-              handleFilters={filters => handleFilters(filters, "price")}
-            ></CheckboxPrice>
+            <div className="col-6 col-sm-12">
+              <h4>Filter by Prices</h4>
+              <div>
+                <CheckboxPrice
+                  prices={prices}
+                  handleFilters={filters => handleFilters(filters, "price")}
+                ></CheckboxPrice>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className="col-8">
+        <div className="col-12 col-sm-9">
           <div className="mb-4">Products</div>
-          <div className="row">
+          <div className="row justify-content-md-center">
             {filteredResults.map((product, i) => (
-              <div key={i} className="col-4 mb-3">
+              <div key={i} className="ml-2 mr-2 mb-3">
                 <Card key={i} product={product}></Card>
               </div>
             ))}

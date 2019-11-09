@@ -42,10 +42,9 @@ const Home = () => {
       // descriptioncss="p2"
     >
       <h2 className="mb-4">Best Sellers</h2>
-      <div className="row">
-        {" "}
+      <div className="row justify-content-md-center">
         {productsBySell.map((product, i) => (
-          <div key={i} className="col-4 mb-3">
+          <div key={i} className="ml-2 mr-2 mb-3">
             <Card key={i} product={product}></Card>
           </div>
         ))}
@@ -53,9 +52,12 @@ const Home = () => {
 
       <hr />
       <h2 className="mb-4">New Arrival</h2>
-      <div className="row">
+      <div className="row justify-content-md-center">
         {productsByArrival.map((product, i) => (
-          <div key={i} className="col-4 mb-3">
+          <div
+            key={i}
+            className="mb-3 col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3"
+          >
             <Card key={i} product={product}></Card>
           </div>
         ))}

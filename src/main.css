@@ -14,7 +14,7 @@
   padding: 2px;
   font-size: 12px;
   font-style: italic;
-  background: #000;
+  background: #dc3545;
 }
 
 
@@ -22,7 +22,7 @@
  * single product page - product name
  */
 .name {
-  background: indigo;
+  background: #000000;
   color: #fff;
   font-weight: bold;
 }
@@ -59,6 +59,7 @@
   */
 .product-img {
   min-height: 100px;
+  text-align: center !important;
 }
 
 .jumbotron h2 {
@@ -150,28 +151,67 @@
 /**
   * header
   */
-.headerrow {
-  background-color: #ffffff !important;
-  width: 100%;
-  position: fixed;
-  z-index: 1030;
+
+.Padtop {
+  padding-top: 56px;
+}
+
+.newNavbar1 {
+  background-color: #343a40;
   height: 56px;
+  position: fixed;
+  width: 100%;
+  z-index: 1030;
+
 }
 
-.newNavbar {
+.newNavbarClear {
+  max-width: 1200px;
   margin: 0 auto;
-  max-width: 1032px;
-  background-color: #ffffff !important;
-
+  background-color: #ffffff00;
+  min-width: 324px
 }
 
-.navlink {
-  color: rgb(0, 0, 0);
-  text-decoration: none;
-  padding-right: .5rem;
-  padding-left: .5rem;
+@media screen and (min-width: 1200px) {
+  .newNavbarClear {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #ffffff00 !important;
+  }
 }
 
-.navlink:hover {
-  text-decoration: none;
+.inline {
+  display: inline-block;
+}
+
+@media screen and (min-width: 1200px) {
+  .fixwidth {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+
+body {
+  min-width: 324px;
+  overflow: auto;
+}
+
+.newcontainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start
+    /* or inline-flex */
+}
+
+.box {
+  flex: 1;
+}
+
+.box1 {
+  width: 283px;
+}
+
+.productdetailbox {
+  max-width: 1000px;
+  margin: 0 auto;
 }
