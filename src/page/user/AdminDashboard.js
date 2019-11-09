@@ -54,7 +54,7 @@ const AdminDashboard = () => {
             </Link>
           </li>
 
-          <li className="list-group-item">
+          {/* <li className="list-group-item">
             <Link
               className="nav-link"
               style={{ padding: 0 }}
@@ -62,7 +62,7 @@ const AdminDashboard = () => {
             >
               update Category
             </Link>
-          </li>
+          </li> */}
         </ul>
       </div>
     );

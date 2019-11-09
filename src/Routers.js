@@ -19,7 +19,8 @@ import OrderPage from "./page/admin/OrderPage";
 import ManageProducts from "./page/admin/ManageProductsPage";
 import UpdateProduct from "./page/admin/UpdateProduct";
 
-import "bootstrap/dist/css/bootstrap.min.css";
+//import "bootstrap/dist/css/bootstrap.min.css";
+import "./bootstrap.css";
 import "./main.css";
 
 const Routers = () => {
