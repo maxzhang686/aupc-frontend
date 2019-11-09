@@ -18,11 +18,22 @@ const AdminDashboard = () => {
             <Link
               className="nav-link"
               style={{ padding: 0 }}
+              to="/admin/orders"
+            >
+              View Orders
+            </Link>
+          </li>
+
+          <li className="list-group-item">
+            <Link
+              className="nav-link"
+              style={{ padding: 0 }}
               to="/create/category"
             >
               Create Category
             </Link>
           </li>
+
           <li className="list-group-item">
             <Link
               className="nav-link"
@@ -32,13 +43,24 @@ const AdminDashboard = () => {
               Creat Product
             </Link>
           </li>
+
           <li className="list-group-item">
             <Link
               className="nav-link"
               style={{ padding: 0 }}
-              to="/admin/orders"
+              to="/admin/products"
             >
-              All Order List
+              Manage Product
+            </Link>
+          </li>
+
+          <li className="list-group-item">
+            <Link
+              className="nav-link"
+              style={{ padding: 0 }}
+              to="/admin/category"
+            >
+              update Category
             </Link>
           </li>
         </ul>

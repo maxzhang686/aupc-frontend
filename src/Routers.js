@@ -15,6 +15,8 @@ import Products from "./page/ProductsPage";
 import ProductDetail from "./page/ProductDetail";
 import Cart from "./page/CartPgae";
 import OrderPage from "./page/admin/OrderPage";
+import ManageProducts from "./page/admin/ManageProductsPage";
+import UpdateProduct from "./page/admin/UpdateProduct";
 
 const Routers = () => {
   return (
@@ -34,6 +36,12 @@ const Routers = () => {
         <AdminRoute path="/create/category" exact component={AddCatagory} />
         <AdminRoute path="/create/product" exact component={AddProduct} />
         <AdminRoute path="/admin/orders" exact component={OrderPage} />
+        <AdminRoute path="/admin/products" exact component={ManageProducts} />
+        <AdminRoute
+          path="/admin/product/update/:productId"
+          exact
+          component={UpdateProduct}
+        />
       </Switch>
     </BrowserRouter>
   );

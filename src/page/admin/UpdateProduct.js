@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import MainLayout from "../../components/MainLayout";
 import { isAuthenticated } from "../../auth";
 import { Link } from "react-router-dom";
-import { createProduct, getCategories } from "./apiAdmin";
+import { getCategories, getSingleProduct, updateProduct } from "./apiAdmin";
 
-const AddProduct = () => {
+const UpdateProduct = ({ match }) => {
   const [values, setValues] = useState({
     name: "",
     description: "",
@@ -41,19 +41,42 @@ const AddProduct = () => {
   } = values;
 
   //local categories and set form data
-  const init = () => {
+  const init = productId => {
+    getSingleProduct(productId).then(data => {
+      if (data.error) {
+        setValues({ ...values, error: data.error });
+      } else {
+        //populuate the state
+        setValues({
+          ...values,
+          name: data.name,
+          description: data.description,
+          fulldescription: data.fulldescription,
+          price: data.price,
+          category: data.category._id,
+          shipping: data.shipping,
+          quantity: data.quantity,
+          formData: new FormData()
+        });
+        //load categories
+        initCategories();
+      }
+    });
+  };
+
+  const initCategories = () => {
     getCategories().then(data => {
       if (data.error) {
         setValues({ ...values, error: data.error });
       } else {
-        setValues({ ...values, categories: data, formData: new FormData() });
+        setValues({ categories: data, formData: new FormData() });
       }
     });
   };
 
   //????lifecycle
   useEffect(() => {
-    init();
+    init(match.params.productId);
   }, []);
 
   const handleChange = name => event => {
@@ -65,23 +88,25 @@ const AddProduct = () => {
   const clickSubmit = event => {
     event.preventDefault();
     setValues({ ...values, error: "", loading: true });
-    createProduct(user._id, token, formData).then(data => {
-      if (data.error) {
-        setValues({ ...values, error: data.error });
-      } else {
-        setValues({
-          ...values,
-          name: "",
-          description: "",
-          fulldescription: "",
-          photo: "",
-          price: "",
-          quantity: "",
-          loading: false,
-          createdProduct: data.name
-        });
+    updateProduct(match.params.productId, user._id, token, formData).then(
+      data => {
+        if (data.error) {
+          setValues({ ...values, error: data.error });
+        } else {
+          setValues({
+            ...values,
+            name: "",
+            description: "",
+            fulldescription: "",
+            photo: "",
+            price: "",
+            quantity: "",
+            loading: false,
+            createdProduct: data.name
+          });
+        }
       }
-    });
+    );
   };
 
   // const testClick = () => console.log(categories);
@@ -113,8 +138,8 @@ const AddProduct = () => {
 
         <div className="form-group">
           <label className="text-muted">Title</label>
-          <input
-            type="text"
+          <textarea
+            //type="text"
             onChange={handleChange("description")}
             className="form-control"
             value={description}
@@ -171,7 +196,7 @@ const AddProduct = () => {
             <option value="1">YES</option>
           </select>
         </div>
-        <button className="btn btn-outline-primary">Create Product</button>
+        <button className="btn btn-outline-primary">Update Product</button>
       </form>
     );
   };
@@ -187,10 +212,15 @@ const AddProduct = () => {
 
   const showSuccess = () => (
     <div
-      className="alert alert-infor"
+      className="alert alert-info"
       style={{ display: createdProduct ? "" : "none" }}
     >
-      <h3>{`${createdProduct}`} is Created!!!</h3>
+      <h4>{`${createdProduct}`} is Update!!!</h4>
+      <div className="mt-1">
+        <Link to="/admin/dashboard" className="text-warning">
+          Back to Dashboard
+        </Link>
+      </div>
     </div>
   );
 
@@ -203,8 +233,8 @@ const AddProduct = () => {
 
   return (
     <MainLayout
-      title="Add a New Product"
-      description={`Hi ${user.name}, Let's create a new product!`}
+      title="Update a product"
+      description={`Hi ${user.name}, Let's update a product!`}
       className="container"
     >
       <div className="row">
@@ -218,4 +248,4 @@ const AddProduct = () => {
     </MainLayout>
   );
 };
-export default AddProduct;
+export default UpdateProduct;

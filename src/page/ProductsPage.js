@@ -14,7 +14,7 @@ const Products = () => {
   });
   const [categories, setCategories] = useState([]);
   const [error, setError] = useState(false);
-  const [limit, setLimit] = useState(6);
+  const [limit, setLimit] = useState(9);
   const [skip, setSkip] = useState(0);
   const [size, setSize] = useState(0);
 
