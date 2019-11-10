@@ -35,7 +35,7 @@ const Home = () => {
 
   return (
     <MainLayout
-      title="Welcome JR-Aupc"
+      title="Welcome Aupc Online"
       description="Australia PC Online Store"
       className="container-fluid "
       // titlecss="p2"
