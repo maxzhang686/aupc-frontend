@@ -50,7 +50,7 @@ const Checkout = ({ products, setRun = f => f, run = undefined }) => {
       <div>{showDropin()}</div>
     ) : (
       <Link to="/signin">
-        <button className="btn btn-primary">Sign in to checkout</button>
+        <button className="btn card__stock">Sign in to checkout</button>
       </Link>
     );
   };

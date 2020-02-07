@@ -16,17 +16,17 @@ export const prices = [
   },
   {
     _id: 3,
-    name: "$500-1000",
+    name: "$500-1k",
     array: [500, 1000]
   },
   {
     _id: 4,
-    name: "$1000-2000",
+    name: "$1k-2k",
     array: [1000, 2000]
   },
   {
     _id: 5,
-    name: "$2000+",
+    name: "$2k+",
     array: [2001, 9999999]
   }
 ];

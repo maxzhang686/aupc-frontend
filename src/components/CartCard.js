@@ -21,7 +21,7 @@ const CartCard = ({
     return (
       showViewProductButton && (
         <Link to={`/product/${product._id}`}>
-          <button className="btn btn-outline-primary mt-2 mb-2 mr-2">
+          <button className="btn card__btn--view mt-2 mb-2 mr-2">
             View Product
           </button>
         </Link>
@@ -56,9 +56,9 @@ const CartCard = ({
 
   const showStock = quantity => {
     return quantity > 0 ? (
-      <span className="badge badge-primary badge-pill">In Stock</span>
+      <span className="badge card__stock badge-pill">In Stock</span>
     ) : (
-      <span className="badge badge-primary badge-pill">Out of Stock</span>
+      <span className="badge card__stock badge-pill">Out of Stock</span>
     );
   };
 
@@ -108,7 +108,7 @@ const CartCard = ({
 
   return (
     <div className="card">
-      <div className="name card-header ">{product.name}</div>
+      <div className="name card-header card-header__title">{product.name}</div>
       <div className="card-body">
         {shouldRedirect(redirect)}
 

@@ -6,7 +6,7 @@ import { Navbar, Nav } from "react-bootstrap";
 
 const isActive = (history, path) => {
   if (history.location.pathname === path) {
-    return { color: "#ff9900" };
+    return { color: "#fc85ae" };
   } else {
     return { color: "#ffffff" };
   }
@@ -15,9 +15,9 @@ const isActive = (history, path) => {
 const NewMenu = ({ history }) => (
   <div className="">
     <Fragment>
-      <div className="newNavbar1">
-        <Navbar bg="dark" variant="dark" expand="lg" className="newNavbarClear">
-          <Navbar.Brand href="/">AUPC</Navbar.Brand>
+      <div className="navbar-box">
+        <Navbar bg="dark" variant="dark" expand="lg" className="navbar-maxwidth">
+          <Navbar.Brand href="/" id="navbar-brand" >AUPC</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
@@ -65,7 +65,7 @@ const NewMenu = ({ history }) => (
                     style={isActive(history, "/user/dashboard")}
                     to="/user/dashboard"
                   >
-                    Dashboard
+                    UserDetail
                   </NavLink>
 
                   <NavLink

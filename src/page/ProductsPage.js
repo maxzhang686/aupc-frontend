@@ -119,23 +119,25 @@ const Products = () => {
       className="container-fluid"
     >
       <div className="row">
-        <div className="col-12 col-sm-3">
+        <div className="col-12">
           <div className="row">
-            <div className="col-6 col-sm-12">
-              <h4>Filter by Categories</h4>
-              <ul>
-                <Checkbox
-                  categories={categories}
-                  handleFilters={categoryfilters =>
-                    handleFilters(categoryfilters, "category")
-                  }
-                ></Checkbox>
-              </ul>
+            <div className="col-12 col-sm-8">
+              <h4 className="checkbox__title">Filter by Categories</h4>
+              <div className="checkbox__filter">
+                <ul>
+                  <Checkbox
+                    categories={categories}
+                    handleFilters={categoryfilters =>
+                      handleFilters(categoryfilters, "category")
+                    }
+                  ></Checkbox>
+                </ul>{" "}
+              </div>
             </div>
 
-            <div className="col-6 col-sm-12">
-              <h4>Filter by Prices</h4>
-              <div>
+            <div className="col-12 col-sm-4">
+              <h4 className="checkbox__title" >By Prices</h4>
+              <div className="checkbox__filter--price"> 
                 <CheckboxPrice
                   prices={prices}
                   handleFilters={filters => handleFilters(filters, "price")}
@@ -145,19 +147,22 @@ const Products = () => {
           </div>
         </div>
 
-        <div className="col-12 col-sm-9">
-          <div className="mb-4">Products</div>
+        <div className="col-12">
+          <div className="homepage-subtitle">Products</div>
 
-          <div className="row justify-content-md-center">
+          <div className="sell-box">
             {filteredResults.map((product, i) => (
-              <div key={i} className="ml-2 mr-2 mb-3">
+              <div key={i} className="">
                 <Card key={i} product={product}></Card>
               </div>
             ))}
           </div>
 
           <hr />
-          {loadMoreButton()}
+          <div className="loadmore__button">
+            {loadMoreButton()}
+          </div>
+
         </div>
       </div>
     </MainLayout>

@@ -15,8 +15,8 @@ const MainLayout = ({
 }) => (
   <div className="Padtop fixwidth">
     <div className="jumbotron">
-      <h2 className={`${titlecss} p2`}>{title}</h2>
-      <p className={`${descriptioncss} p3 lead`}>{description}</p>
+      <h2 className={`${titlecss} header-title`}>{title}</h2>
+      <p className={`${descriptioncss} header-sub lead`}>{description}</p>
     </div>
     <div className={className}>{children}</div>
   </div>

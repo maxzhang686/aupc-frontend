@@ -41,22 +41,22 @@ const Home = () => {
       // titlecss="p2"
       // descriptioncss="p2"
     >
-      <h2 className="mb-4">Best Sellers</h2>
-      <div className="row justify-content-md-center">
+      <h2 className="mb-4 homepage-subtitle">Best Sellers</h2>
+      <div className="sell-box">
         {productsBySell.map((product, i) => (
-          <div key={i} className="ml-2 mr-2 mb-3">
+          <div key={i} className="">
             <Card key={i} product={product}></Card>
           </div>
         ))}
       </div>
 
       <hr />
-      <h2 className="mb-4">New Arrival</h2>
-      <div className="row justify-content-md-center">
+      <h2 className="mb-4 homepage-subtitle">New Arrival</h2>
+      <div className="sell-box">
         {productsByArrival.map((product, i) => (
           <div
             key={i}
-            className="mb-3 col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3"
+            className=""
           >
             <Card key={i} product={product}></Card>
           </div>

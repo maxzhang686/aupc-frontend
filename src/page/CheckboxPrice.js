@@ -9,7 +9,7 @@ const CheckboxPrice = ({ prices, handleFilters }) => {
   };
 
   return prices.map((price, _id) => (
-    <div key={_id}>
+    <div  key={_id}>
       <input
         onChange={handleChange}
         value={`${price._id}`}

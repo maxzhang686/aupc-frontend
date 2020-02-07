@@ -98,7 +98,7 @@ const OrderPage = () => {
                 style={{ borderBottom: "5px solid indigo" }}
               >
                 <h2 className="mb-5">
-                  <span className="bg-primary">Order ID: {order._id}</span>
+                  <span className="card__stock">Order ID: {order._id}</span>
                 </h2>
 
                 <ul className="list-group mb-2">

@@ -33,7 +33,7 @@ const CardProduct = ({
       showAddToCartButton && (
         <button
           onClick={addToCart}
-          className="btn btn-outline-warning mt-2 mb-2"
+          className="btn card__btn--add mt-2 mb-2"
         >
           Add to cart
         </button>
@@ -43,9 +43,9 @@ const CardProduct = ({
 
   const showStock = quantity => {
     return quantity > 0 ? (
-      <span className="badge badge-primary badge-pill">In Stock</span>
+      <span className="badge card__stock badge-pill">In Stock</span>
     ) : (
-      <span className="badge badge-primary badge-pill">Out of Stock</span>
+      <span className="badge card__stock badge-pill">Out of Stock</span>
     );
   };
 
