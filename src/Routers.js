@@ -21,7 +21,8 @@ import UpdateProduct from "./page/admin/UpdateProduct";
 
 //import "bootstrap/dist/css/bootstrap.min.css";
 import "./bootstrap.css";
-import "./main.css";
+import "./main.scss"
+//import "./main.css";
 
 const Routers = () => {
   return (

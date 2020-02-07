@@ -7,6 +7,7 @@
     "braintree-web-drop-in-react": "^1.1.0",
     "dotenv": "^8.2.0",
     "moment": "^2.24.0",
+    "node-sass": "^4.13.1",
     "react": "^16.11.0",
     "react-bootstrap": "^1.0.0-beta.14",
     "react-dom": "^16.11.0",

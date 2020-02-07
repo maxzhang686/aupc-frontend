@@ -147,6 +147,7 @@ const Products = () => {
 
         <div className="col-12 col-sm-9">
           <div className="mb-4">Products</div>
+
           <div className="row justify-content-md-center">
             {filteredResults.map((product, i) => (
               <div key={i} className="ml-2 mr-2 mb-3">
@@ -154,6 +155,7 @@ const Products = () => {
               </div>
             ))}
           </div>
+
           <hr />
           {loadMoreButton()}
         </div>

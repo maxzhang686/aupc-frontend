@@ -1,6 +1,3 @@
-/**
- * border radius
- */
 .btn,
 .jumbotron,
 .nav :hover {
@@ -17,7 +14,6 @@
   background: #dc3545;
 }
 
-
 /**
  * single product page - product name
  */
@@ -26,7 +22,6 @@
   color: #fff;
   font-weight: bold;
 }
-
 
 /* black shade form 10-1 */
 .black-10 {
@@ -53,7 +48,6 @@
   background: #b3b3b3;
 }
 
-
 /**
   * product image on card
   */
@@ -67,7 +61,6 @@
 }
 
 .jumbotron .lead {
-
   margin-bottom: -10px;
 }
 
@@ -76,12 +69,10 @@
     margin-top: 10px;
   }
 } */
-
 .p2 {
   color: #e90d31;
   font-weight: bold;
-  text-shadow: 0 0 0.2em rgb(241, 206, 200),
-    -0 -0 0.2em #f87;
+  text-shadow: 0 0 0.2em #f1cec8, 0 0 0.2em #f87;
 }
 
 .p3 {
@@ -90,94 +81,24 @@
 }
 
 /**
-  * jumbotron animation
-  */
-/*   
-.jumbotron {
-  width: 30wh;
-  height: 30vh; 
-  color: #fff;
-  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-  background-size: 400% 400%;
-  -webkit-animation: Gradient 15s ease infinite;
-  -moz-animation: Gradient 15s ease infinite;
-  animation: Gradient 15s ease infinite;
-}
-
-@-webkit-keyframes Gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-
-  50% {
-    background-position: 100% 50%;
-  }
-
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-@-moz-keyframes Gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-
-  50% {
-    background-position: 100% 50%;
-  }
-
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-@keyframes Gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-
-  50% {
-    background-position: 100% 50%;
-  }
-
-  100% {
-    background-position: 0% 50%;
-  }
-} */
-
-
-
-/**
   * header
   */
-
 .Padtop {
   padding-top: 56px;
 }
 
-.newNavbar1 {
-  background-color: #343a40;
+.Navbar {
+  background-color: #e41749;
   height: 56px;
   position: fixed;
   width: 100%;
   z-index: 1030;
-
 }
 
 .newNavbarClear {
   max-width: 1200px;
   margin: 0 auto;
-  background-color: #ffffff00;
-  min-width: 324px
-}
-
-@media screen and (min-width: 1200px) {
-  .newNavbarClear {
-    max-width: 1200px;
-    margin: 0 auto;
-    background-color: #ffffff00 !important;
-  }
+  min-width: 324px;
 }
 
 .inline {
@@ -190,7 +111,6 @@
     margin: 0 auto;
   }
 }
-
 body {
   min-width: 324px;
   overflow: auto;
@@ -199,8 +119,7 @@ body {
 .newcontainer {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start
-    /* or inline-flex */
+  justify-content: flex-start;
 }
 
 .box {
@@ -215,3 +134,5 @@ body {
   max-width: 1000px;
   margin: 0 auto;
 }
+
+/*# sourceMappingURL=main.css.map */
