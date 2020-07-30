@@ -41,12 +41,20 @@ const Card = ({
     }
   };
 
-  const addToCartButton = showAddToCartButton => {
-    return (
+  const addToCartButton = (showAddToCartButton,quantity )=> {
+    return quantity > 0 ? (
       showAddToCartButton && (
         <button
           onClick={addToCart}
           className="btn card__btn--add mt-2 mb-2"
+        >
+          Add to Cart
+        </button>
+      )
+    ):(
+      showAddToCartButton && (
+        <button
+          className="btn card__btn--disable mt-2 mb-2" type="button" disabled
         >
           Add to Cart
         </button>
@@ -126,7 +134,7 @@ const Card = ({
 
         {viewButton(showViewProductButton)}
 
-        {addToCartButton(showAddToCartButton)}
+        {addToCartButton(showAddToCartButton,product.quantity)}
 
         {removeProductButton(showRemoveProduct)}
       </div>
